@@ -1,8 +1,5 @@
 import { Client } from 'discord.js';
 import { readdirSync } from 'fs';
-import * as dotenv from 'dotenv';
-
-dotenv.config();
 
 class registry extends Client {
     constructor(options) {
