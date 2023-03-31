@@ -150,7 +150,7 @@ export default class extends baseCommand {
         })
     }
     async execute(interaction) {
-        if (!interaction.member.roles.cache.has(config.roles.administrator)) return interaction.reply({content: `${locale[config.locale].global.non_permission}`, ephemeral: true});
+        if (!interaction.member.roles.cache.has(config.roles[config.commands_permission.embeds])) return interaction.reply({content: `${locale[config.locale].global.non_permission}`, ephemeral: true});
         const subCommands = interaction.options.getSubcommand();
         const load = await import(`./subCommands/${subCommands}.js`);
         await load.default(this.client, interaction);
