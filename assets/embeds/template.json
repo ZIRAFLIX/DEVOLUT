@@ -1,0 +1,23 @@
+{
+    "_comment_pt": "Acesse a documentação completa em: ",
+    "_comment_en": "Access the full documentation at: ",
+    "embed": {
+        "author": {
+            "name": "",
+            "url": "",
+            "iconURL": ""
+        },
+        "title": "",
+        "description": "",
+        "color": "",
+        "thumbnail": "",
+        "image": "",
+        "fields": [],
+        "footer": {
+            "text": "",
+            "iconURL": ""
+        }
+    },
+    "buttons": [],
+    "menus": []
+}

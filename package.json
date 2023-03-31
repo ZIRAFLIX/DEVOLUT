@@ -7,6 +7,12 @@
   "scripts": {
     "dev": "nodemon index.js"
   },
+  "nodemonConfig": {
+    "ignore": [
+      "cache/**/*",
+      "cache/*"
+    ]
+  },
   "keywords": [],
   "author": "mixzira",
   "license": "ISC",
@@ -15,7 +21,9 @@
     "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
     "mysql2": "^3.2.0",
+    "node-fetch": "^3.3.1",
     "nodemon": "^2.0.22",
+    "remove-accents": "^0.4.4",
     "sequelize": "^6.30.0"
   }
 }
