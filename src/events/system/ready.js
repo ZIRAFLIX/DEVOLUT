@@ -19,7 +19,7 @@ export default class extends baseEvent {
         console.log(this.client.user.tag + ' - Conexão com o Discord estabelecida com sucesso!'); // Log to console when the bot is ready
 
         setInterval(() => { // Change activity every time defined in config.js
-            this.client.user.setActivity(`${config.activity.random[Math.floor(Math.random() * config.activity.random.length)]}`, {type: config.activity.type}); // Set activity with data from config.js
+            config.activity.random.length > 0 ? this.client.user.setActivity(`${config.activity.random[Math.floor(Math.random() * config.activity.random.length)]}`, {type: config.activity.type}) : null; // Set activity with data from config.js
         }, 1000 * 60 * config.activity.time);
     }
 }
