@@ -3,7 +3,8 @@
 // WARNING: All comments made in the code are in English, because it is the language used for software development, however, the documentation of this repository is also available in Brazilian Portuguese.
 // ATENÇÃO: Todos os comentários feitos no código estão em inglês, pois, é o idioma usado para desenvolvimento de software, etretanto a documentação deste repositório também está disponível em português do Brasil.
 export default {
-    locale: 'en_US', // Language used in the application. Available languages: en_US, pt_BR // Idioma usado na aplicação. Idiomas disponíveis: en_US, pt_BR
+    development: true, // Development mode. If true, the permissions is not required to use the commands
+    locale: 'en_US', // Language used in the application. Available languages: en_US, pt_BR
 
     activity: { // Activity application configuration
         time: 1, // Time to change activity in minutes

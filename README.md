@@ -1,4 +1,4 @@
-<img src="https://cdn.discordapp.com/attachments/917183221375049728/1092521276775600259/devolut-banner.png" href="https://discord.gg/kYFy8JwVfd" />
+<img src="https://cdn.discordapp.com/attachments/917183221375049728/1092521276775600259/devolut-banner.png" />
 
 > **A open source [Discord application](https://discord.com/developers/applications) developed for roleplay communities (FiveM Servers) or stores, with essential features.**
 
