@@ -150,7 +150,7 @@ export default class extends baseCommand {
         })
     }
     async execute(interaction) {
-        if(config.development){
+        if(!config.development){
             if (!interaction.member.roles.cache.has(config.roles[config.commands_permission.embeds])) return interaction.reply({content: `${locale[config.locale].global.non_permission}`, ephemeral: true});
         }
         
