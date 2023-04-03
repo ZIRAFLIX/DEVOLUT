@@ -31,7 +31,7 @@ export default async (client, interaction) => {
       const row = new ActionRowBuilder();
 
       data.embed.color ? embed.setColor(data.embed.color) : null;
-      data.embed.author && data.embed.author.name && data.embed.author.iconURL && isValidURL(data.embed.author.iconURL) ? embed.setAuthor({name: data.embed.author.name, iconURL: data.embed.author.icon_url}) : null;
+      data.embed.author && data.embed.author.name && data.embed.author.iconURL && data.embed.author.url && isValidURL(data.embed.author.iconURL) && isValidURL(data.embed.author.url) ? embed.setAuthor({name: data.embed.author.name, url: data.embed.author.url, iconURL: data.embed.author.icon_url}) : null;
       data.embed.title ? embed.setTitle(data.embed.title) : null;
       data.embed.description ? embed.setDescription(data.embed.description) : null;
       data.embed.fields ? data.embed.fields.map(f => embed.addFields([{name: f.name, value: f.value, inline: f.inline}])) : null;
@@ -40,6 +40,7 @@ export default async (client, interaction) => {
       data.embed.footer && data.embed.footer.text && data.embed.footer.iconURL && isValidURL(data.embed.footer.iconURL) ? embed.setFooter({text: data.embed.footer.text, iconURL: data.embed.footer.iconURL}) : null;
 
       const dataToObj = {
+        Primary: ButtonStyle.Primary,
         Success: ButtonStyle.Success,
         Secondary: ButtonStyle.Secondary,
         Danger: ButtonStyle.Danger,

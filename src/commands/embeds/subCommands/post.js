@@ -7,11 +7,18 @@ import config from '../../../../config.js';
 
 const __dirname = path.resolve();
 
+function isValidURL(string) {
+    var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+    return (res !== null)
+};
+
 export default async (client, interaction) => {
     const channel = interaction.options.getChannel('channel');
     let embedName = interaction.options.getString('name');
     embedName = removeAccents(embedName).toLowerCase().replace(/\s+/g, "");
     
+    if (!fs.existsSync(`${__dirname}/cache/embeds/${embedName}.json`)) return interaction.reply({ content:`${locale[config.locale].commands.embeds.non_existence}`, ephemeral:true});
+
     fs.readFile(`${__dirname}/cache/embeds/${embedName}.json`, (err, file) => {
         if (err) throw err;
         const data = JSON.parse(file);
@@ -19,7 +26,7 @@ export default async (client, interaction) => {
         const row = new ActionRowBuilder()
         
         data.embed.color ? embed.setColor(data.embed.color) : null;
-        data.embed.author && data.embed.author.name && data.embed.author.iconURL ? embed.setAuthor({name: data.embed.author.name, iconURL: data.embed.author.icon_url}) : null;
+        data.embed.author && data.embed.author.name && data.embed.author.iconURL && data.embed.author.url && isValidURL(data.embed.author.iconURL) && isValidURL(data.embed.author.url) ? embed.setAuthor({name: data.embed.author.name, url: data.embed.author.url, iconURL: data.embed.author.iconURL}) : null;
         data.embed.title ? embed.setTitle(data.embed.title) : null;
         data.embed.description ? embed.setDescription(data.embed.description) : null;
         data.embed.fields ? data.embed.fields.map(f => embed.addFields([{name: f.name, value: f.value, inline: f.inline}])) : null;
@@ -28,6 +35,7 @@ export default async (client, interaction) => {
         data.embed.footer && data.embed.footer.text && data.embed.footer.iconURL ? embed.setFooter({text: data.embed.footer.text, iconURL: data.embed.footer.iconURL}) : null;
 
         const dataToObj = {
+            Primary: ButtonStyle.Primary,
             Success: ButtonStyle.Success,
             Secondary: ButtonStyle.Secondary,
             Danger: ButtonStyle.Danger,

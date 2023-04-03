@@ -2,6 +2,7 @@
 // ATENÇÃO: Os SlashCommands do Discord possuem suporte nativo a vários idiomas, portanto, acionadores e descrições dos comandos foram feitas em português e inglês diretamente dentro do arquivo de cada comando.
 // WARNING: All comments made in the code are in English, because it is the language used for software development, however, the documentation of this repository is also available in Brazilian Portuguese.
 // ATENÇÃO: Todos os comentários feitos no código estão em inglês, pois, é o idioma usado para desenvolvimento de software, etretanto a documentação deste repositório também está disponível em português do Brasil.
+
 export default {
     en_US: {
         global: {
