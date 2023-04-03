@@ -4,7 +4,7 @@ import path from 'path';
 import removeAccents from 'remove-accents';
 import locale from '../../../../locale.js';
 import config from '../../../../config.js';
-import { validate } from '../../../../utils.js';
+import { validate } from '../../../utils/validate.js';
 
 const __dirname = path.resolve();
 
