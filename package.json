@@ -1,7 +1,8 @@
 {
-  "name": "ziraflix-bot",
-  "version": "1.0.0",
-  "description": "",
+  "name": "devolut",
+  "version": "0.0.2",
+  "description": "DEVOLUT is a Discord application developed for roleplay communities (FiveM Servers) or stores, with essential features.",
+  "documentation": "https://wiki.ziraflix.gg/pt/zirix/devolut - https://wiki.ziraflix.gg/en/zirix/devolut",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -14,8 +15,8 @@
     ]
   },
   "keywords": [],
-  "author": "mixzira",
-  "license": "ISC",
+  "author": "ZIRAFLIX development team",
+  "license": "GNU",
   "dependencies": {
     "discord.js": "^14.8.0",
     "dotenv": "^16.0.3",
