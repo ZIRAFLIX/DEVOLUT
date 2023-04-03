@@ -5,13 +5,9 @@ import fetch from 'node-fetch';
 import removeAccents from 'remove-accents';
 import locale from '../../../../locale.js';
 import config from '../../../../config.js';
+import { validate } from '../../../../utils.js';
 
 const __dirname = path.resolve();
-
-function isValidURL(string) {
-  var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-  return (res !== null)
-};
 
 export default async (client, interaction) => {
   let embedName = interaction.options.getString('name');
@@ -31,7 +27,7 @@ export default async (client, interaction) => {
       const row = new ActionRowBuilder();
 
       data.embed.color ? embed.setColor(data.embed.color) : null;
-      data.embed.author && data.embed.author.name && data.embed.author.iconURL && data.embed.author.url && isValidURL(data.embed.author.iconURL) && isValidURL(data.embed.author.url) ? embed.setAuthor({name: data.embed.author.name, url: data.embed.author.url, iconURL: data.embed.author.icon_url}) : null;
+      data.embed.author && data.embed.author.name && data.embed.author.iconURL && data.embed.author.url && validate(data.embed.author.iconURL, 'url') && validate(data.embed.author.url, 'url') ? embed.setAuthor({name: data.embed.author.name, url: data.embed.author.url, iconURL: data.embed.author.icon_url}) : null;
       data.embed.title ? embed.setTitle(data.embed.title) : null;
       data.embed.description ? embed.setDescription(data.embed.description) : null;
       data.embed.fields ? data.embed.fields.map(f => embed.addFields([{name: f.name, value: f.value, inline: f.inline}])) : null;
